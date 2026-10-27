@@ -97,7 +97,9 @@ setup(
     name='tripyview',
     packages=['tripyview'],
     package_dir={'tripyview': 'tripyview'},
-    #package_data={'': ['*.shp',]},
+    # Without these a non-editable install has no shapefiles (calc_zmoc,
+    # MOC basins) or plot backgrounds: include_package_data needs a MANIFEST.in.
+    package_data={'tripyview': ['shapefiles/**/*', 'backgrounds/**/*']},
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
